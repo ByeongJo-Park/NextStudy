@@ -5,12 +5,10 @@ const prisma = new PrismaClient();
 
 export async function GET() {
   const data = await prisma.test.findMany();
-  console.log('get data', data);
   return NextResponse.json(data);
 }
 
 export async function POST(req: NextRequest) {
-  console.log('post start')
   const body = await req.json();
   const created = await prisma.test.create({
     data: {
@@ -24,7 +22,6 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
-  console.log('update start')
   const body = await req.json()
   const updated = await prisma.test.update({
     data: {

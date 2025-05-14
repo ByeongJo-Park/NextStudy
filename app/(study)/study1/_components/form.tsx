@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { TestSchema,TestType } from "@/data/test/model";
+import { DataType, DataSchema } from "@/data/test/model";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -15,11 +15,11 @@ import {
   FormMessage
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useTestCreate, useTestUpdate } from "@/hooks/useTest";
+import { useCreateData, useUpdateData } from "@/data/test/useTest";
 
 interface InputFormProps {
   update?: boolean
-  data?: TestType
+  data?: DataType
   setUpdate?: (update: boolean) => void
   setView?: (view: boolean) => void
 }
@@ -35,15 +35,15 @@ export function InputForm({
     code3: "",
   }}: InputFormProps) {
     
-  const { mutate: createTest } = useTestCreate();
-  const { mutate: updateTest } = useTestUpdate();
+  const { mutate: createTest } = useCreateData();
+  const { mutate: updateTest } = useUpdateData();
 
-  const form = useForm<z.input<typeof TestSchema>>({
-    resolver: zodResolver(TestSchema),
+  const form = useForm<z.input<typeof DataSchema>>({
+    resolver: zodResolver(DataSchema),
     defaultValues: data,
   });
 
-  function onSubmit(data: z.input<typeof TestSchema>) {
+  function onSubmit(data: z.input<typeof DataSchema>) {
     console.log("onSubmit", data);
     try {
       if (!update) {
