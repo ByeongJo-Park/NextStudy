@@ -4,7 +4,7 @@ import Providers from './providers';
 
 export default function layout({children}: {children: React.ReactNode}) {
   return (
-    <div className="grid">
+    <div className="grid w-screen">
       <h1>layouts examples</h1>
       <Providers>
         {children}

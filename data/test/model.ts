@@ -20,6 +20,7 @@ export const DataCreateRequestSchema = z.object({
 });
 
 export const DataUpdateRequestSchema = z.object({
+  id: z.number(),
   name: z.string(),
   code1: z.string(),
   code2: z.string(),

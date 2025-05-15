@@ -31,7 +31,7 @@ export class TestService {
       console.log(res);
       return res;
     } catch (error) {
-      console.error('Error creating test:', error);
+      console.error('Error create test:', error);
       throw new Error('Failed to create test');
     } 
   }
@@ -42,7 +42,7 @@ export class TestService {
       console.log(res);
       return res;
     } catch (error) {
-      console.error('Error creating test:', error);
+      console.error('Error update test:', error);
       throw new Error('Failed to create test');
     } 
   }
@@ -53,7 +53,7 @@ export class TestService {
       console.log(res);
       return res;
     } catch (error) {
-      console.error('Error creating test:', error);
+      console.error('Error delete test:', error);
       throw new Error('Failed to create test');
     } 
   }
